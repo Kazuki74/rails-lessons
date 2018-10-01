@@ -13,6 +13,13 @@ module Webapp
 
     config.read_encrypted_secrets = true
 
+    config.generators do |g|
+    	g.skip_routes true
+    	g.stylesheets false
+    	g.javascripts false
+    	g.healer false
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
