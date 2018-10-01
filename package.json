@@ -1,5 +1,7 @@
 {
   "name": "webapp",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "vim": "^0.1.0"
+  }
 }
