@@ -18,6 +18,10 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
+#  avatar_file_name       :string
+#  avatar_content_type    :string
+#  avatar_file_size       :bigint
+#  avatar_updated_at      :datetime
 #
 
 class User < ApplicationRecord
@@ -30,6 +34,8 @@ class User < ApplicationRecord
 
   validates_format_of :name, with: /^[a-zA-Z0-9_¥]*$/, multiline: true
   validate :validate_name
+  has_attached_file :avatar, styles: {midium: '300*300>', thumb: '100*100>'}, default_url: '/missing.png'
+  validates_attachment_content_type :avatar, content_type: %r{¥image¥/.*¥z}
 
    def login=(login)
    	@login = login
